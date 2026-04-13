@@ -41,20 +41,111 @@ The project emphasizes **industry-level verification methodologies**, including 
 
 ## 📁 Project Structure
 
-```
-rtl/
-  pcie/
-  dma/
-  ddr/
-  axi/
-verification/
-  uvm_env/
-  agents/
-  scoreboard/
-scripts/
-docs/
-```
-
+pcie-ddr-soc-uvm/
+│
+├── README.md
+├── LICENSE
+├── .gitignore
+│
+├── docs/
+│   ├── architecture/
+│   │   ├── soc_block_diagram.png
+│   │   ├── pcie_flow.png
+│   │   └── ddr_controller.png
+│   ├── specifications/
+│   │   ├── pcie_protocol.md
+│   │   ├── axi_protocol.md
+│   │   └── ddr_timing.md
+│   └── reports/
+│       ├── verification_report.pdf
+│       └── performance_analysis.pdf
+│
+├── rtl/
+│   ├── top/
+│   │   └── soc_top.v
+│   │
+│   ├── pcie/
+│   │   ├── pcie_top.v
+│   │   ├── tlp_handler.v
+│   │   ├── dll_layer.v
+│   │   └── flow_control.v
+│   │
+│   ├── dma/
+│   │   ├── dma_engine.v
+│   │   ├── dma_scheduler.v
+│   │   └── dma_fsm.v
+│   │
+│   ├── ddr/
+│   │   ├── ddr_controller.v
+│   │   ├── refresh_logic.v
+│   │   └── timing_ctrl.v
+│   │
+│   ├── axi/
+│   │   ├── axi_interconnect.v
+│   │   ├── axi_master.v
+│   │   └── axi_slave.v
+│   │
+│   └── common/
+│       ├── fifo.v
+│       ├── arbiter.v
+│       └── registers.v
+│
+├── verification/
+│   ├── tb/
+│   │   └── tb_top.sv
+│   │
+│   ├── uvm_env/
+│   │   ├── env.sv
+│   │   ├── config.sv
+│   │   └── virtual_sequencer.sv
+│   │
+│   ├── agents/
+│   │   ├── pcie_agent/
+│   │   │   ├── pcie_driver.sv
+│   │   │   ├── pcie_monitor.sv
+│   │   │   └── pcie_seq_item.sv
+│   │   │
+│   │   ├── axi_agent/
+│   │   └── ddr_agent/
+│   │
+│   ├── scoreboard/
+│   │   └── soc_scoreboard.sv
+│   │
+│   ├── sequences/
+│   │   ├── base_sequence.sv
+│   │   ├── pcie_rw_sequence.sv
+│   │   └── stress_sequence.sv
+│   │
+│   ├── tests/
+│   │   ├── base_test.sv
+│   │   ├── sanity_test.sv
+│   │   └── stress_test.sv
+│   │
+│   └── coverage/
+│       ├── functional_coverage.sv
+│       └── protocol_coverage.sv
+│
+├── sim/
+│   ├── run.do
+│   ├── compile.sh
+│   └── run_sim.sh
+│
+├── scripts/
+│   ├── compile.tcl
+│   ├── run_regression.py
+│   └── waveform_setup.tcl
+│
+├── models/
+│   ├── memory_model.sv
+│   └── pcie_reference_model.py
+│
+├── results/
+│   ├── waveforms/
+│   ├── logs/
+│   └── coverage/
+│
+└── ci/
+    └── regression.yml
 ---
 
 ## 🚀 Features
