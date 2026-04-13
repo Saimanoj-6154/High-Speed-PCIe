@@ -189,26 +189,164 @@ PCIe Host ⇄ PCIe Controller ⇄ DMA Engine ⇄ AXI Interconnect ⇄ DDR Memory
 
 ## 📁 Project Structure
 
-```id="9pjv9y"
-rtl/
-  pcie/
-  dma/
-  ddr/
-  axi/
-
-verification/
-  uvm_env/
-  agents/
-  scoreboard/
-  sequences/
-  tests/
-
-scripts/
-models/
-docs/
-results/
-```
-
+pcie-ddr-soc-uvm/
+│
+├── README.md/
+├── LICENSE/
+├── .gitignore/
+├── Makefile/
+│
+├── docs/
+│   ├── architecture/
+│   │   ├── soc_block_diagram.png/
+│   │   ├── data_flow.png/
+│   │   ├── pcie_layers.png/
+│   │   └── axi_ddr_integration.png/
+│   │
+│   ├── specifications/
+│   │   ├── pcie_protocol.md/
+│   │   ├── axi_protocol.md/
+│   │   ├── ddr_timing.md/
+│   │   └── design_constraints.md/
+│   │
+│   └── reports/
+│       ├── verification_plan.md/
+│       ├── coverage_report.md/
+│       ├── bug_tracker.md/
+│       └── performance_report.md/
+│
+├── rtl/
+│   ├── top/
+│   │   ├── soc_top.v/
+│   │   ├── soc_config.vh/
+│   │   └── address_map.vh/
+│   │
+│   ├── pcie/
+│   │   ├── pcie_top.v/
+│   │   ├── pcie_tlp_engine.v/
+│   │   ├── pcie_rx.v/
+│   │   ├── pcie_tx.v/
+│   │   ├── pcie_flow_ctrl.v/
+│   │   └── pcie_config_space.v/
+│   │
+│   ├── dma/
+│   │   ├── dma_engine.v/
+│   │   ├── dma_scheduler.v/
+│   │   ├── dma_fsm.v/
+│   │   ├── dma_descriptor.v/
+│   │   └── dma_buffer.v/
+│   │
+│   ├── ddr/
+│   │   ├── ddr_controller.v/
+│   │   ├── ddr_cmd_scheduler.v/
+│   │   ├── ddr_refresh.v/
+│   │   ├── ddr_timing_ctrl.v/
+│   │   └── ddr_phy_if.v/
+│   │
+│   ├── axi/
+│   │   ├── axi_interconnect.v
+│   │   ├── axi_arbiter.v
+│   │   ├── axi_master_if.v
+│   │   ├── axi_slave_if.v
+│   │   └── axi_protocol_checker.v
+│   │
+│   └── common/
+│       ├── fifo.v
+│       ├── sync_fifo.v
+│       ├── arbiter.v
+│       ├── register_file.v
+│       └── reset_sync.v
+│
+├── verification/
+│   ├── tb/
+│   │   ├── tb_top.sv
+│   │   ├── tb_pkg.sv
+│   │   └── tb_config.sv
+│   │
+│   ├── uvm_env/
+│   │   ├── env.sv
+│   │   ├── config.sv
+│   │   ├── virtual_sequencer.sv
+│   │   └── env_pkg.sv
+│   │
+│   ├── agents/
+│   │   ├── pcie_agent/
+│   │   │   ├── pcie_agent.sv
+│   │   │   ├── pcie_driver.sv
+│   │   │   ├── pcie_monitor.sv
+│   │   │   ├── pcie_sequencer.sv
+│   │   │   └── pcie_seq_item.sv
+│   │   │
+│   │   ├── axi_agent/
+│   │   │   ├── axi_agent.sv
+│   │   │   ├── axi_driver.sv
+│   │   │   ├── axi_monitor.sv
+│   │   │   └── axi_seq_item.sv
+│   │   │
+│   │   └── ddr_agent/
+│   │       ├── ddr_agent.sv
+│   │       ├── ddr_driver.sv
+│   │       ├── ddr_monitor.sv
+│   │       └── ddr_seq_item.sv
+│   │
+│   ├── scoreboard/
+│   │   ├── soc_scoreboard.sv
+│   │   ├── reference_model.py
+│   │   └── data_checker.sv
+│   │
+│   ├── sequences/
+│   │   ├── base_sequence.sv
+│   │   ├── pcie_read_seq.sv
+│   │   ├── pcie_write_seq.sv
+│   │   ├── dma_transfer_seq.sv
+│   │   └── stress_seq.sv
+│   │
+│   ├── tests/
+│   │   ├── base_test.sv
+│   │   ├── sanity_test.sv
+│   │   ├── dma_test.sv
+│   │   ├── stress_test.sv
+│   │   └── error_injection_test.sv
+│   │
+│   ├── coverage/
+│   │   ├── functional_cov.sv
+│   │   ├── protocol_cov.sv
+│   │   └── cross_cov.sv
+│   │
+│   └── assertions/
+│       ├── axi_assertions.sv
+│       ├── pcie_assertions.sv
+│       └── data_integrity_assertions.sv
+│
+├── sim/
+│   ├── compile.do
+│   ├── run.do
+│   ├── filelist.f
+│   ├── run_sim.sh
+│   └── run_regression.sh
+│
+├── scripts/
+│   ├── compile.tcl
+│   ├── sim_setup.tcl
+│   ├── regression.py
+│   ├── coverage_merge.py
+│   └── waveform_setup.tcl
+│
+├── models/
+│   ├── memory_model.sv
+│   ├── pcie_ref_model.py
+│   ├── traffic_generator.py
+│   └── golden_model.cpp
+│
+├── results/
+│   ├── logs/
+│   ├── waveforms/
+│   ├── coverage/
+│   └── reports/
+│
+└── ci/
+    ├── regression.yml
+    └── lint.yml
 ---
 
 ## 🚀 Features
