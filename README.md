@@ -189,6 +189,8 @@ PCIe Host ⇄ PCIe Controller ⇄ DMA Engine ⇄ AXI Interconnect ⇄ DDR Memory
 
 ## 📁 Project Structure
 
+ ...
+
 pcie-ddr-soc-uvm/
 ├── README.md
 ├── LICENSE
@@ -311,6 +313,8 @@ pcie-ddr-soc-uvm/
 
 ├── ci/
 │   └── lint.yml
+
+...
 ---
 
 ## 🚀 Features
