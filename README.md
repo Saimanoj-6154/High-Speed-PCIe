@@ -174,10 +174,10 @@ PCIe Host ⇄ PCIe Controller ⇄ DMA Engine ⇄ AXI Interconnect ⇄ DDR Memory
 | ------------ | ------------------------ |
 | RTL Design   | Verilog, SystemVerilog   |
 | Verification | UVM                      |
-| Simulation   | Synopsys VCS / QuestaSim |
+| Simulation   |QuestaSim                 |
 | Debug        | GTKWave                  |
 | Scripting    | Python, TCL              |
-| Modeling     | Python / C++             |
+| Modeling     | Python & C++             |
 
 ---
 
