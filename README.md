@@ -13,8 +13,8 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [System Architecture](#system-architecture)
-- [UVM Environment Architecture](#uvm-environment-architecture)
+- [System Architecture](#-system-architecture)
+- [Data Flow](#-data-flow)
   - [Testbench Hierarchy](#testbench-hierarchy)
   - [Component Breakdown](#component-breakdown)
 - [Verification Plan (VPlan)](#verification-plan-vplan)
