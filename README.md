@@ -20,7 +20,7 @@
 - [Verification Methodology (UVM)](#-verification-methodology-uvm)
 - [UVM Components](#-uvm-components)
 - [Assertions (SVA)](#-assertions-sva)
-- [Test Scenarios)](#test-scenarios)
+- [Test Scenarios](#test-scenarios)
 - [Performance Metrics](#-performance-metrics)
 - [Tools & Technologies](#%EF%B8%8F-tools--technologies)
 - [Project Structure](#-project-structure)
