@@ -13,7 +13,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [System Architecture](#System-Architecture)
+- [System Architecture](#system-architecture)
 - [UVM Environment Architecture](#uvm-environment-architecture)
   - [Testbench Hierarchy](#testbench-hierarchy)
   - [Component Breakdown](#component-breakdown)
