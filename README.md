@@ -3,12 +3,36 @@
 >The High-Speed PCIe + DDR SoC Subsystem is a high-bandwidth data movement engine designed for modern SoCs. It serves as a bridge between an external host (via PCIe Gen 4/5) and system memory (DDR4/5), utilizing a high-performance AXI4 Interconnect.
 
 ---
+
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
 ![Language](https://img.shields.io/badge/HDL-Verilog%20%7C%20SystemVerilog-blue)
 ![Verification](https://img.shields.io/badge/Verification-UVM-green)
 ![Flow](https://img.shields.io/badge/Flow-RTL--to--GDSII-orange)
 
 ---
+## Table of Contents
+
+- [Overview](#overview)
+- [System Architecture](#System-Architecture)
+- [UVM Environment Architecture](#uvm-environment-architecture)
+  - [Testbench Hierarchy](#testbench-hierarchy)
+  - [Component Breakdown](#component-breakdown)
+- [Verification Plan (VPlan)](#verification-plan-vplan)
+  - [Feature Coverage Goals](#feature-coverage-goals)
+  - [Corner Cases Targeted](#corner-cases-targeted)
+- [Test Suite](#test-suite)
+- [Functional Coverage](#functional-coverage)
+- [Assertion-Based Verification (SVA)](#assertion-based-verification-sva)
+- [Directory Structure](#directory-structure)
+- [Tools & Technologies](#tools--technologies)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Running Simulations](#running-simulations)
+  - [Coverage Collection & Merge](#coverage-collection--merge)
+- [Results & Metrics](#results--metrics)
+- [Regression Flow](#regression-flow)
+- [Known Bugs Found](#known-bugs-found)
+- [Future Work](#future-work)
 
 ## 📌 Overview
 
